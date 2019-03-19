@@ -1,3 +1,4 @@
+// main file
 #define MSENS A0
 #define LSENS A1
 #define RSENS A2
@@ -32,6 +33,5 @@ void loop() {
   
   get_direction(read_sensor_values()); // this reads the value of the sensor and inputs it to the direction deciding function
   
- 
-  delay(100);
+  delay(10);
 }

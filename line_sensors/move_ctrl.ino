@@ -7,17 +7,18 @@ void get_direction(signed char x){
       advance();
       break;
       case 1:
-        sharpLeft();
+        sharpLeft(130,130);
+        delay(50);
       break;
       case 2:
         advance();
       break;
       case 3:
-        
         left();
       break;
       case 4:
-        sharpRight();
+        sharpRight(130,130);
+        delay(50);
       break;
       case 5: // special case and big WTF
         advance();
