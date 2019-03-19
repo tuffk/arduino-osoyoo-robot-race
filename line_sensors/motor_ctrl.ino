@@ -7,7 +7,7 @@
 #define dir1PinR  7    //Motor direction
 #define dir2PinR  8   //Motor direction
 #define speedPinR 5    // Needs to be a PWM pin to be able to control motor speed
-#define DEF_SPEED 110 // 
+#define DEF_SPEED 100 // 
 
 Servo head;
 void motor_move(int l1, int l2, int r1, int r2, int speedl, int speedr){
