@@ -7,7 +7,7 @@
 #define dir1PinR  7    //Motor direction
 #define dir2PinR  8   //Motor direction
 #define speedPinR 5    // Needs to be a PWM pin to be able to control motor speed
-#define DEF_SPEED 100 // 
+#define DEF_SPEED 130 // 
 
 Servo head;
 void motor_move(int l1, int l2, int r1, int r2, int speedl, int speedr){
@@ -26,11 +26,11 @@ void advance(int s=DEF_SPEED){
 void reverse(int s=DEF_SPEED){
   motor_move(HIGH,LOW,HIGH,LOW,s,s);
 }
-void left(int s=DEF_SPEED, int s2=10){
-  motor_move(LOW,HIGH,LOW,HIGH,s2,s);
+void left(int s=DEF_SPEED, int s2=60){
+  motor_move(LOW,HIGH,LOW,HIGH,s2,s+30);
 }
-void right(int s=DEF_SPEED, int s2=10){
-    motor_move(LOW,HIGH,LOW,HIGH,s,s2);
+void right(int s=DEF_SPEED, int s2=60){
+    motor_move(LOW,HIGH,LOW,HIGH,s+30,s2);
 }
 void sharpRight(int s=DEF_SPEED, int s2=DEF_SPEED){
   motor_move(HIGH,LOW,LOW,HIGH,s,s2);
