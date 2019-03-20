@@ -51,7 +51,7 @@ void stop_Stop()    //Stop
 }
 void open_Clamp()    //Opens clamp 
 {
-  head.write(90); //use 90 degrees if you are moving your servo through the whole 180 degrees
+  head.write(00); //use 90 degrees if you are moving your servo through the whole 180 degrees
 }
 void close_Clamp()    //Closes clamp 
 {
@@ -66,7 +66,6 @@ void movement()
 /**************detect IR code***************/
 void do_IR_Tick()
 {
-  
   if(IR.decode(&IRresults))
   {
     if(IRresults.value==IR_ADVANCE)
@@ -100,11 +99,13 @@ void do_IR_Tick()
     }
     else if(IRresults.value==IR_open_clamp)
     {
-        open_Clamp();
+      Serial.println('open clamp');
+      open_Clamp();
     }
     else if(IRresults.value==IR_close_clamp)
     {
-        close_Clamp();
+      Serial.println('close clamp');
+      close_Clamp();
     }
     IRresults.value = 0;
     IR.resume();
