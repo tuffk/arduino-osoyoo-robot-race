@@ -19,6 +19,9 @@ void motor_move(int l1, int l2, int r1, int r2, int speedl, int speedr){
   digitalWrite(dir2PinR,r2);
     
 }
+void wait(){
+  motor_move(LOW,LOW,LOW,LOW,0,0);
+}
 void advance(int s=DEF_SPEED){
   motor_move(LOW,HIGH,LOW,HIGH,s,s);
 }
@@ -37,4 +40,25 @@ void sharpRight(int s=DEF_SPEED, int s2=DEF_SPEED){
 }
 void sharpLeft(int s=DEF_SPEED, int s2=DEF_SPEED){
   motor_move(LOW,HIGH,HIGH,LOW,s2,s);
+}
+void wriggle(){
+  for(int i=0; i<5; i++){
+   sharpRight(150,150);
+   delay(200);
+   sharpLeft(150,150);
+   delay(200);
+  }
+}
+void dance(){
+  for(int i=0; i<4; i++){
+  wriggle();
+  advance(200);
+  delay(1000);
+  wriggle();
+  advance(200);
+  delay(1000);
+  wait();
+  delay(2000);
+  }
+  
 }
