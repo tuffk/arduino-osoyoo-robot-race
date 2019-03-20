@@ -11,8 +11,6 @@ bool off_line=true;
 bool decision_done=false;
 int count_off_line=0;
 
-bool choosing_mode=false;
-
 void get_direction(signed char x){
   // this function will decide wich direction to go
   //Serial.print(x);
@@ -20,12 +18,14 @@ void get_direction(signed char x){
   switch(x){
       case 0: // special case no sensor detects the line
       //advance();
-        if(!turning) advance();
+        if(!turning and !sturning) advance();
         else delay(30);
       break;
       case 1:
-        left();
-        turning=true;
+        if(!sturning){
+          left();
+          turning=true;
+        }
       break;
       case 2:
         advance();
@@ -39,12 +39,12 @@ void get_direction(signed char x){
       break;
       case 4:
         if(!sturning){
-        right();
-        turning=true;
+          right();
+          turning=true;
         }
       break;
       case 5: // special case and big WTF
-        if(!turning){
+        if(!turning and !sturning){
           advance();
         }
       break;
@@ -52,10 +52,12 @@ void get_direction(signed char x){
         
         sharpRight(130,130);
         turning=true;
-        sturning=false;
+        sturning=true;
       break;
       case 7: // special case all sensor detect the line
-        advance();
+        if(!turning and !sturning){
+          advance();
+        }
       break;
       default:
       break;
@@ -66,8 +68,10 @@ void get_direction(signed char x){
       //advance();
       break;
       case 1:
-        left();
-        turning=true;
+        if(!sturning){
+          left();
+          turning=true;
+        }
       break;
       case 2:
         if(!taking_decision) advance();
@@ -99,7 +103,7 @@ void get_direction(signed char x){
         }
       break;
       case 5: // special case and big WTF
-        if(!turning){
+        if(!turning and !sturning){
           advance();
         }
       break;

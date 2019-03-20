@@ -10,7 +10,8 @@ decode_results IRresults;
 
 Servo head;
 
-bool PUTO = false;
+bool PUTO = true;
+bool choosing_mode=false;
 
 void setup() {
   // put your setup code here, to run once:
