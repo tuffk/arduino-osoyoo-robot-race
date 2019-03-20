@@ -14,11 +14,11 @@
  #define IR_BACK          0x00FF4AB5       //code from IR controller "▼" button
  #define IR_RIGHT         0x00FF5AA5       //code from IR controller ">" button
  #define IR_LEFT          0x00FF10EF       //code from IR controller "<" button
- //#define IR_STOP          0x00FF38C7       //code from IR controller "OK" button
- #define IR_turnsmallleft 0x00FFB04F       //code from IR controller "#" button
+ //#define IR_STOP          0x00FF38C7       //code from IR controller "OK" buttonbutton
  
- #define IR_open_clamp 0x00FF42BD       //code from IR controller "7" button !!! CONFIGURE ME
- #define IR_close_clamp 0x00FF52AD      //code from IR controller "9" button !!! CONFIGURE ME
+#define IR_open_clamp 0x00FFB04F       //code from IR controller "#" button
+#define IR_close_clamp 0x00FF6897      //code from IR controller "*" button
+
   #define IR_ok 0x00FF38C7      //code from IR controller "0" button !!! CONFIGURE ME
  //0x00FF6897
  #define SPEED 180       //speed of car
