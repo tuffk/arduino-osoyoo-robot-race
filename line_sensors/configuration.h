@@ -21,8 +21,8 @@
 
   #define IR_ok 0x00FF38C7      //code from IR controller "0" button !!! CONFIGURE ME
  //0x00FF6897
- #define SPEED 180       //speed of car
- #define DelayTime 500       //speed of car
+ #define SPEED 160       //speed of car
+ #define DelayTime 200       //speed of car
  #define SERVO_PIN 9
 enum DN
 { 
