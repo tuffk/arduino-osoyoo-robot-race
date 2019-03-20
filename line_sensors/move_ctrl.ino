@@ -1,6 +1,7 @@
 #define DELAY_IT 70
 #define TURN_THR 4
 #define SLOW_MODE 50
+#define SHARP_SPEED 130
 bool turning=false;
 bool sturning=false;
 int count_forward=0;
@@ -10,6 +11,7 @@ bool taking_decision=false;
 bool off_line=true;
 bool decision_done=false;
 int count_off_line=0;
+
 void get_direction(signed char x){
   // this function will decide wich direction to go
   //Serial.print(x);
@@ -34,10 +36,14 @@ void get_direction(signed char x){
   switch(x){
       case 0: // special case no sensor detects the line
       //advance();
+        if(!turning and !sturning) advance();
+        else delay(30);
       break;
       case 1:
-        left();
-        turning=true;
+        if(!sturning){
+          left();
+          turning=true;
+        }
       break;
       case 2:
         advance();
@@ -45,29 +51,31 @@ void get_direction(signed char x){
         sturning=false;
       break;
       case 3:
-        sharpLeft(130,130);
+        sharpLeft(SHARP_SPEED,SHARP_SPEED);
         turning=true;
         sturning=true;
       break;
       case 4:
         if(!sturning){
-        right();
-        turning=true;
+          right();
+          turning=true;
         }
       break;
       case 5: // special case and big WTF
-        if(!turning){
+        if(!turning and !sturning){
           advance();
         }
       break;
       case 6:
         
-        sharpRight(130,130);
+        sharpRight(SHARP_SPEED,SHARP_SPEED);
         turning=true;
-        sturning=false;
+        sturning=true;
       break;
       case 7: // special case all sensor detect the line
-        advance();
+        if(!turning and !sturning){
+          advance();
+        }
       break;
       default:
       break;
@@ -75,11 +83,14 @@ void get_direction(signed char x){
     }else{
     switch(x){
       case 0: // special case no sensor detects the line
-      //advance();
+         if(!turning and !sturning) advance();
+        else delay(30);
       break;
       case 1:
-        left();
-        turning=true;
+        if(!sturning){
+          left();
+          turning=true;
+        }
       break;
       case 2:
         if(!taking_decision) advance();
@@ -92,7 +103,7 @@ void get_direction(signed char x){
         off_line=false;
       break;
       case 3:
-        sharpLeft(130,130);
+        sharpLeft(SHARP_SPEED,SHARP_SPEED);
         turning=true;
         sturning=true;
         count_turning+=1;
@@ -111,18 +122,18 @@ void get_direction(signed char x){
         }
       break;
       case 5: // special case and big WTF
-        if(!turning){
+        if(!turning and !sturning){
           advance();
         }
       break;
       case 6:
         
-        sharpRight(130,130);
+        sharpRight(SHARP_SPEED,SHARP_SPEED);
         turning=true;
-        sturning=false;
+        sturning=true;
       break;
       case 7: // special case all sensor detect the line
-        sharpLeft(130,130);
+        sharpLeft(SHARP_SPEED,SHARP_SPEED);
         count_turning=0;
         delay(400);
         if(!off_line){
