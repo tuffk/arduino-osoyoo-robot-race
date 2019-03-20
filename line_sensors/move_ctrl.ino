@@ -13,6 +13,23 @@ int count_off_line=0;
 void get_direction(signed char x){
   // this function will decide wich direction to go
   //Serial.print(x);
+
+
+  if(IR.decode(&IRresults))
+  {
+    if(IRresults.value==IR_ok)
+    {
+      if(IR_FLAG){
+        IR_FLAG = false;
+      }else{
+        IR_FLAG = true;
+      }
+    }
+    IRresults.value = 0;
+    IR.resume();
+  }
+
+  
   if(!choosing_mode){
   switch(x){
       case 0: // special case no sensor detects the line

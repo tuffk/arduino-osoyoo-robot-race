@@ -6,11 +6,12 @@
 #include "configuration.h"
 #include <IRremote.h>
 IRrecv IR(IR_PIN);
-decode_results IRresults; 
+decode_results IRresults;
+bool choosing_mode = false; 
 
 Servo head;
 
-bool PUTO = false;
+bool IR_FLAG = true;
 
 void setup() {
   // put your setup code here, to run once:
@@ -49,12 +50,13 @@ int read_sensor_values()
 
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  if(PUTO)
+  if(IR_FLAG)
   {
     get_direction(read_sensor_values()); // this reads the value of the sensor and inputs it to the direction deciding function
   }else{
     do_IR_Tick();
   }
-  delay(10);
+  
+
+
 }

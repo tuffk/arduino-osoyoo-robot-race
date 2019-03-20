@@ -90,9 +90,13 @@ void do_IR_Tick()
          go_Back();
     movement();
     }
-    else if(IRresults.value==IR_STOP)
+    else if(IRresults.value==IR_ok)
     {
-        stop_Stop();
+      if(IR_FLAG){
+        IR_FLAG = false;
+      }else{
+        IR_FLAG = true;
+      }
     }
     else if(IRresults.value==IR_open_clamp)
     {
