@@ -15,9 +15,10 @@
  #define IR_RIGHT         0x00FF5AA5       //code from IR controller ">" button
  #define IR_LEFT          0x00FF10EF       //code from IR controller "<" button
  #define IR_STOP          0x00FF38C7       //code from IR controller "OK" button
+ #define IR_turnsmallleft 0x00FFB04F       //code from IR controller "#" button
  
- #define IR_open_clamp 0x00FFB04F       //code from IR controller "#" button !!! CONFIGURE ME
- #define IR_close_clamp 0x00FFB04F      //code from IR controller "#" button !!! CONFIGURE ME
+ #define IR_open_clamp 0x00FF42BD       //code from IR controller "7" button !!! CONFIGURE ME
+ #define IR_close_clamp 0x00FF52AD      //code from IR controller "9" button !!! CONFIGURE ME
  
  #define SPEED 180       //speed of car
  #define DelayTime 500       //speed of car

@@ -1,7 +1,6 @@
-#include <IRremote.h>
+
                                                                                             
- IRrecv IR(IR_PIN);  //   IRrecv object  IR get code from IR remoter
- decode_results IRresults;   
+  
 
  /***************motor control***************/
 
@@ -67,6 +66,7 @@ void movement()
 /**************detect IR code***************/
 void do_IR_Tick()
 {
+  
   if(IR.decode(&IRresults))
   {
     if(IRresults.value==IR_ADVANCE)
@@ -96,11 +96,11 @@ void do_IR_Tick()
     }
     else if(IRresults.value==IR_open_clamp)
     {
-        stop_Stop();
+        open_Clamp();
     }
     else if(IRresults.value==IR_close_clamp)
     {
-        stop_Stop();
+        close_Clamp();
     }
     IRresults.value = 0;
     IR.resume();
