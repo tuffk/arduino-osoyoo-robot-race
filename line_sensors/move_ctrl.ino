@@ -17,6 +17,8 @@ void get_direction(signed char x){
   switch(x){
       case 0: // special case no sensor detects the line
       //advance();
+        if(!turning) advance();
+        else delay(30);
       break;
       case 1:
         left();
