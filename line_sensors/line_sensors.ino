@@ -12,7 +12,7 @@ bool choosing_mode = false;
 Servo head;
 
 bool IR_FLAG = true;
-
+bool dancing=false;
 void setup() {
   // put your setup code here, to run once:
   pinMode(MSENS,INPUT);
@@ -29,7 +29,8 @@ void setup() {
   pinMode(IR_PIN, INPUT);
   digitalWrite(IR_PIN, HIGH);
   IR.enableIRIn();
- 
+ if(dancing)
+    dance();
 }
 
 
