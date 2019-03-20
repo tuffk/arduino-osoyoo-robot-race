@@ -1,4 +1,4 @@
-#include <Servo.h>
+
 //Define L298N Dual H-Bridge Motor Controller Pins
 #define dir1PinL  2    //Motor direction
 #define dir2PinL  4    //Motor direction
@@ -9,7 +9,7 @@
 #define speedPinR 5    // Needs to be a PWM pin to be able to control motor speed
 #define DEF_SPEED 130 // 
 
-Servo head;
+
 void motor_move(int l1, int l2, int r1, int r2, int speedl, int speedr){
   analogWrite (speedPinR,speedr);
   analogWrite (speedPinL,speedl);

@@ -2,13 +2,34 @@
 #define MSENS A0
 #define LSENS A1
 #define RSENS A2
+#include <Servo.h>
+#include "configuration.h"
+#include <IRremote.h>
+IRrecv IR(IR_PIN);
+decode_results IRresults;
+bool choosing_mode = false; 
+
+Servo head;
+
+bool IR_FLAG = true;
 
 void setup() {
   // put your setup code here, to run once:
   pinMode(MSENS,INPUT);
   pinMode(LSENS,INPUT); 
-  pinMode(RSENS,INPUT); 
-  Serial.begin(9600);
+  pinMode(RSENS,INPUT);
+  pinMode(dir1PinL, OUTPUT);
+  pinMode(dir2PinL, OUTPUT);
+  pinMode(speedPinL, OUTPUT);
+  pinMode(dir1PinR, OUTPUT);
+  pinMode(dir2PinR, OUTPUT);
+  pinMode(speedPinR, OUTPUT);
+  head.attach(SERVO_PIN); //servo
+  
+  pinMode(IR_PIN, INPUT);
+  digitalWrite(IR_PIN, HIGH);
+  IR.enableIRIn();
+ 
 }
 
 
@@ -29,9 +50,13 @@ int read_sensor_values()
 
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  if(IR_FLAG)
+  {
+    get_direction(read_sensor_values()); // this reads the value of the sensor and inputs it to the direction deciding function
+  }else{
+    do_IR_Tick();
+  }
   
-  get_direction(read_sensor_values()); // this reads the value of the sensor and inputs it to the direction deciding function
-  
-  delay(10);
+
+
 }
