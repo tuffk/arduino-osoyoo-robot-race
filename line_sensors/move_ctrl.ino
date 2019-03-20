@@ -10,6 +10,9 @@ bool taking_decision=false;
 bool off_line=true;
 bool decision_done=false;
 int count_off_line=0;
+
+bool choosing_mode=false;
+
 void get_direction(signed char x){
   // this function will decide wich direction to go
   //Serial.print(x);
