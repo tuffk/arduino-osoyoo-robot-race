@@ -1,6 +1,4 @@
 #include <IRremote.h>
-#include "configuration.h"
-
                                                                                             
  IRrecv IR(IR_PIN);  //   IRrecv object  IR get code from IR remoter
  decode_results IRresults;   

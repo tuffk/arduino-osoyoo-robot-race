@@ -21,7 +21,7 @@
  
  #define SPEED 180       //speed of car
  #define DelayTime 500       //speed of car
- 
+ #define SERVO_PIN 9
 enum DN
 { 
   GO_ADVANCE, //go forward

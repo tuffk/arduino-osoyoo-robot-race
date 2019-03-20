@@ -3,8 +3,8 @@
 #define LSENS A1
 #define RSENS A2
 #include <Servo.h>
+#include "configuration.h"
 Servo head;
-head.attach(SERVO_PIN); //servo
 
 void setup() {
   // put your setup code here, to run once:
