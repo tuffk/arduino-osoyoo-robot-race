@@ -55,7 +55,7 @@ void open_Clamp()    //Opens clamp
 }
 void close_Clamp()    //Closes clamp 
 {
-  head.write(0);
+  head.write(90);
 }
 void movement()
 {
